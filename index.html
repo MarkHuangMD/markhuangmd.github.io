@@ -37,6 +37,16 @@
         </section>
 
         <section>
+            <h2>我的興趣</h2>
+            <div id="interests"></div>
+        </section>
+
+        <section>
+            <h2>部落格</h2>
+            <div id="blog-posts"></div>
+        </section>
+
+        <section>
             <h2>聯絡我</h2>
             <p>📫 Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
         </section>
@@ -44,6 +54,19 @@
 
     <footer>
         <p>&copy; 2025 Po-Yu Huang. All rights reserved.</p>
+        <script>
+            fetch('interests.md').then(response => response.text()).then(text => {
+                document.getElementById("interests").innerHTML = marked(text);
+            });
+
+            fetch('blog/').then(response => response.text()).then(text => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, "text/html");
+                const links = Array.from(doc.querySelectorAll('a')).filter(link => link.href.endsWith('.md'));
+                const posts = links.map(link => `<li><a href="blog/${link.textContent}">${link.textContent.replace('.md', '')}</a></li>`).join('');
+                document.getElementById("blog-posts").innerHTML = `<ul>${posts}</ul>`;
+            });
+        </script>
     </footer>
 </body>
 </html>
