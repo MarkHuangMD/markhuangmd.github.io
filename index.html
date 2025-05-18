@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Po-Yu Huang's Personal Website">
-    <title>Po-Yu Huang - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f4f4f9; margin: 0; padding: 0; }
-        header { background: #2c3e50; padding: 1rem; text-align: center; color: #fff; }
-        main { max-width: 800px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); }
-        footer { text-align: center; margin-top: 2rem; color: #666; }
-        h1, h2, h3 { color: #2c3e50; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Po-Yu Huang - 個人網站</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Po-Yu Huang</h1>
-        <p> Anesthesiologist to be | Mark | 馬克醫師 </p>
-    </header>
+  <header>
+    <h1>Po-Yu Huang</h1>
+    <p>Anesthesiologist | Researcher | McLaren Fan</p>
+    <button id="theme-toggle">切換主題</button>
+  </header>
 
-    <main>
-        <section>
-            <h2>關於我</h2>
-            <p> Anesthesiologist to be | 麻醉科住院醫師 </p>
-        </section>
+  <nav>
+    <a href="#professional">專業</a>
+    <a href="#passions">我喜歡的</a>
+    <a href="#misc">雜項</a>
+    <a href="#blog">部落格</a>
+  </nav>
 
-        <section>
-            <h2>我的研究</h2>
-            <ul>
-                <li><a href="#">Remimazolam 對無插管 VATS 手術的影響</a></li>
-                <li><a href="#">連續神經阻滯在心胸外科術後疼痛控制的應用</a></li>
-            </ul>
-        </section>
+  <main>
+    <section id="professional">
+      <h2>專業</h2>
+      <ul>
+        <li>臨床介紹：麻醉科住院醫師</li>
+        <li>研究方向：VATS, Remimazolam, Pain Block</li>
+        <li>發表論文：<a href="#">Remimazolam 對無插管 VATS 的影響</a></li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>我的興趣</h2>
-            <div id="interests"></div>
-        </section>
+    <section id="passions">
+      <h2>我喜歡的東西</h2>
+      <ul>
+        <li>🏎 Formula 1 - 支持 McLaren</li>
+        <li>🏈 NFL</li>
+        <li>📺 電視影集</li>
+        <li>🌍 旅遊</li>
+        <li>🎾 男子網球四大賽</li>
+        <li>💹 美股投資</li>
+        <li>📸 IG: <a href="https://www.instagram.com/primacorstock" target="_blank">@primacorstock</a></li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>部落格</h2>
-            <div id="blog-posts"></div>
-        </section>
+    <section id="misc">
+      <h2>雜項</h2>
+      <p>這裡是一些我想隨意分享的內容或想法。</p>
+    </section>
 
-        <section>
-            <h2>聯絡我</h2>
-            <p>📫 Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        </section>
-    </main>
+    <section id="blog">
+      <h2>部落格</h2>
+      <div id="tag-filter"></div>
+      <ul id="blog-list"></ul>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 P.Y.H. All rights reserved.</p>
-        <script>
-            fetch('interests.md').then(response => response.text()).then(text => {
-                document.getElementById("interests").innerHTML = marked(text);
-            });
+  <footer>
+    <p>&copy; 2025 Po-Yu Huang. All rights reserved.</p>
+  </footer>
 
-            fetch('blog/').then(response => response.text()).then(text => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, "text/html");
-                const links = Array.from(doc.querySelectorAll('a')).filter(link => link.href.endsWith('.md'));
-                const posts = links.map(link => `<li><a href="blog/${link.textContent}">${link.textContent.replace('.md', '')}</a></li>`).join('');
-                document.getElementById("blog-posts").innerHTML = `<ul>${posts}</ul>`;
-            });
-        </script>
-    </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
