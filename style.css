@@ -67,3 +67,14 @@ button#theme-toggle {
 .light-theme nav a {
   color: #222;
 }
+
+/* Paddock Pass clickable link style */
+.passion-link {
+  color: #ff8700;
+  text-decoration: none;
+  font-weight: bold;
+}
+.passion-link:hover {
+  text-decoration: underline;
+}
+
