@@ -68,6 +68,62 @@ button#theme-toggle {
   color: #222;
 }
 
+/* === Inside the Series styles === */
+.series-container {
+  display: grid;
+  gap: 1.5rem;
+}
+.series-year h3 {
+  font-size: 1.5rem;
+  color: #ff8700;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ff8700;
+  cursor: pointer;
+}
+.series-list {
+  list-style: none;
+  padding-left: 0;
+}
+.series-card {
+  background-color: #1c1c1c;
+  border-left: 5px solid #ff8700;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.series-card:hover {
+  transform: translateY(-5px);
+}
+.series-image {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.series-content {
+  flex-grow: 1;
+}
+.series-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.series-rating {
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  color: gold;
+}
+.series-review {
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #aaaaaa;
+}
+
 /* Paddock Pass clickable link style */
 .passion-link {
   color: #ff8700;
